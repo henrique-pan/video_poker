@@ -8,13 +8,13 @@
 
 class PokerHands {
     
-    func royalFlush(hand: [(card: Int, suit: String)]) -> Bool {
+    func royalFlush(hand: [Card]) -> Bool {
         //--
         var cards = [Int]()
         var suits = [String]()
         //--
         for c in hand {
-            cards.append(c.card)
+            cards.append(c.value)
             suits.append(c.suit)
         }
         //--
@@ -32,13 +32,13 @@ class PokerHands {
         return true
     }
     
-    func straightFlush(hand: [(card: Int, suit: String)]) -> Bool {
+    func straightFlush(hand: [Card]) -> Bool {
         //--
         var cards = [Int]()
         var suits = [String]()
         //--
         for c in hand {
-            cards.append(c.card)
+            cards.append(c.value)
             suits.append(c.suit)
         }
         //--
@@ -56,7 +56,7 @@ class PokerHands {
         return true
     }
     
-    func fourKind(hand: [(card: Int, suit: String)]) -> Bool {
+    func fourKind(hand: [Card]) -> Bool {
         //--
         let cards = parseTupleReturnArray(hand: hand)
         //--
@@ -67,14 +67,14 @@ class PokerHands {
         return true
     }
 
-    func fullHouse(hand: [(card: Int, suit: String)]) -> Bool {
+    func fullHouse(hand: [Card]) -> Bool {
         //--
         let cards = parseTupleReturnArray(hand: hand)
         //--
         var repeats: [Int: Int] = [:]
         //--
-        for item in cards {
-            repeats[item] = (repeats[item] ?? 0) + 1
+        for card in cards {
+            repeats[card.value] = (repeats[card.value] ?? 0) + 1
         }
         //--
         if repeats.count != 2 {
@@ -84,7 +84,7 @@ class PokerHands {
         return true
     }
 
-    func flush(hand: [(card: Int, suit: String)]) -> Bool {
+    func flush(hand: [Card]) -> Bool {
         //--
         var suits = [String]()
         //--
@@ -103,12 +103,12 @@ class PokerHands {
         return true
     }
 
-    func straight(hand: [(card: Int, suit: String)]) -> Bool {
+    func straight(hand: [Card]) -> Bool {
         //--
         var cards = [Int]()
         //--
         for c in hand {
-            cards.append(c.card)
+            cards.append(c.value)
         }
         //--
         cards.sort{$0 < $1}
@@ -130,7 +130,7 @@ class PokerHands {
         return true
     }
 
-    func threeKind(hand: [(card: Int, suit: String)]) -> Bool {
+    func threeKind(hand: [Card]) -> Bool {
         //--
         let cards = parseTupleReturnArray(hand: hand)
         //--
@@ -141,14 +141,14 @@ class PokerHands {
         return true
     }
 
-    func twoPairs(hand: [(card: Int, suit: String)]) -> Bool {
+    func twoPairs(hand: [Card]) -> Bool {
         //--
         let cards = parseTupleReturnArray(hand: hand)
         //--
         var repeats: [Int: Int] = [:]
         //--
-        for item in cards {
-            repeats[item] = (repeats[item] ?? 0) + 1
+        for card in cards {
+            repeats[card.value] = (repeats[card.value] ?? 0) + 1
         }
         //--
         if repeats.count != 3 {
@@ -164,14 +164,14 @@ class PokerHands {
         return false
     }
     
-    func onePair(hand: [(card: Int, suit: String)]) -> Bool {
+    func onePair(hand: [Card]) -> Bool {
         //--
         let cards = parseTupleReturnArray(hand: hand)
         //--
         var repeats: [Int: Int] = [:]
         //--
-        for item in cards {
-            repeats[item] = (repeats[item] ?? 0) + 1
+        for card in cards {
+            repeats[card.value] = (repeats[card.value] ?? 0) + 1
         }
         //--
         for (key, val) in repeats {
@@ -183,23 +183,23 @@ class PokerHands {
         return false
     }
     
-    func parseTupleReturnArray(hand: [(card: Int, suit: String)]) -> [Int] {
+    private func parseTupleReturnArray(hand: [Card]) -> [Card] {
         //--
-        var cards = [Int]()
+        var cards = [Card]()
         //--
         for c in hand {
-            cards.append(c.card)
+            cards.append(c)
         }
         //--
-        return cards.sorted{$0 < $1}
+        return cards.sorted{$0.value < $1.value}
     }
     
-    func threeOrFourKind(cards: [Int], threeOrFour: Int) -> Bool {
+    private func threeOrFourKind(cards: [Card], threeOrFour: Int) -> Bool {
         //--
         var repeats: [Int: Int] = [:]
         //--
-        for item in cards {
-            repeats[item] = (repeats[item] ?? 0) + 1
+        for card in cards {
+            repeats[card.value] = (repeats[card.value] ?? 0) + 1
         }
         //--
         for (_, val) in repeats {

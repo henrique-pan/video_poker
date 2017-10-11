@@ -43,14 +43,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ABb-G8-SwU" userLabel="score">
                                 <rect key="frame" x="0.0" y="20" width="667" height="131.5"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Mw-JdY">
-                                <rect key="frame" x="310" y="331" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="doDeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V4h-uT-6rU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-RH-sz8" userLabel="buttonCard1">
                                 <rect key="frame" x="33" y="176.5" width="100" height="131"/>
                                 <connections>
@@ -79,6 +71,51 @@
                                 <rect key="frame" x="534" y="176.5" width="100" height="131"/>
                                 <connections>
                                     <action selector="selectCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Bk-2U-Qzc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCO-Ov-haw">
+                                <rect key="frame" x="300" y="337" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Miser 100"/>
+                                <connections>
+                                    <action selector="doBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xfc-SS-J53"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-Yx-n9S">
+                                <rect key="frame" x="34" y="337" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Recommencer"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFn-Y5-Zn9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9t-pf-CST">
+                                <rect key="frame" x="178" y="337" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Miser 25"/>
+                                <connections>
+                                    <action selector="doBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sdy-tt-8JP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIr-aV-2cM">
+                                <rect key="frame" x="422" y="337" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Miser Tout"/>
+                                <connections>
+                                    <action selector="doBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W63-Eb-ZEC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Mw-JdY">
+                                <rect key="frame" x="550" y="337" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Distribuer"/>
+                                <connections>
+                                    <action selector="doDeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V4h-uT-6rU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,6 +172,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonAllIn" destination="AIr-aV-2cM" id="JpH-qw-jwJ"/>
+                        <outlet property="buttonBet100" destination="dCO-Ov-haw" id="ZoV-8O-56T"/>
+                        <outlet property="buttonBet25" destination="q9t-pf-CST" id="cg8-MP-jUa"/>
                         <outlet property="card1" destination="imw-RQ-VBz" id="HbI-pG-UaZ"/>
                         <outlet property="card2" destination="wRa-Y5-Bef" id="rBh-Ex-7ZN"/>
                         <outlet property="card3" destination="691-Px-Hch" id="dSZ-4r-T3t"/>

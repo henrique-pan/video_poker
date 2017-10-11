@@ -12,10 +12,11 @@
 		9B67C1E31F8D062400A2B6C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C1E11F8D062400A2B6C7 /* Main.storyboard */; };
 		9B67C1E51F8D062400A2B6C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C1E41F8D062400A2B6C7 /* Assets.xcassets */; };
 		9B67C1E81F8D062400A2B6C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C1E61F8D062400A2B6C7 /* LaunchScreen.storyboard */; };
-		9B67C25B1F8D074300A2B6C7 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C2591F8D074300A2B6C7 /* background.png */; };
 		9B67C25C1F8D074300A2B6C7 /* cards_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C25A1F8D074300A2B6C7 /* cards_back.png */; };
 		9B67C25E1F8D134B00A2B6C7 /* score_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C25D1F8D134B00A2B6C7 /* score_background.png */; };
 		9B67C2601F8D1B3C00A2B6C7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B67C25F1F8D1B3C00A2B6C7 /* Card.swift */; };
+		9B84BA0A1F8EA4470020CC2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B84BA091F8EA4470020CC2D /* background.png */; };
+		9B84BA0C1F8EB4DB0020CC2D /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84BA0B1F8EB4DB0020CC2D /* Hand.swift */; };
 		9BDCF4921F8E49990040928C /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDCF4911F8E49990040928C /* Slot.swift */; };
 		9BDCF4961F8E5C4C0040928C /* PokerHands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDCF4951F8E5C4C0040928C /* PokerHands.swift */; };
 		9BDCF4CB1F8E605D0040928C /* 1c.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BDCF4971F8E605D0040928C /* 1c.png */; };
@@ -70,6 +71,8 @@
 		9BDCF4FC1F8E605D0040928C /* 13d.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BDCF4C81F8E605D0040928C /* 13d.png */; };
 		9BDCF4FD1F8E605D0040928C /* 13h.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BDCF4C91F8E605D0040928C /* 13h.png */; };
 		9BDCF4FE1F8E605D0040928C /* 13s.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BDCF4CA1F8E605D0040928C /* 13s.png */; };
+		9BDCF5001F8E62330040928C /* PokerGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDCF4FF1F8E62330040928C /* PokerGameDelegate.swift */; };
+		9BDCF5031F8E629C0040928C /* PokerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDCF5021F8E629C0040928C /* PokerGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,10 +83,11 @@
 		9B67C1E41F8D062400A2B6C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B67C1E71F8D062400A2B6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B67C1E91F8D062400A2B6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B67C2591F8D074300A2B6C7 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = images/background.png; sourceTree = "<group>"; };
 		9B67C25A1F8D074300A2B6C7 /* cards_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cards_back.png; path = images/cards_back.png; sourceTree = "<group>"; };
 		9B67C25D1F8D134B00A2B6C7 /* score_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = score_background.png; path = images/score_background.png; sourceTree = "<group>"; };
 		9B67C25F1F8D1B3C00A2B6C7 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9B84BA091F8EA4470020CC2D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = images/background.png; sourceTree = "<group>"; };
+		9B84BA0B1F8EB4DB0020CC2D /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		9BDCF4911F8E49990040928C /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		9BDCF4951F8E5C4C0040928C /* PokerHands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerHands.swift; sourceTree = "<group>"; };
 		9BDCF4971F8E605D0040928C /* 1c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1c.png; path = images/cards/1c.png; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		9BDCF4C81F8E605D0040928C /* 13d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 13d.png; path = images/cards/13d.png; sourceTree = "<group>"; };
 		9BDCF4C91F8E605D0040928C /* 13h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 13h.png; path = images/cards/13h.png; sourceTree = "<group>"; };
 		9BDCF4CA1F8E605D0040928C /* 13s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 13s.png; path = images/cards/13s.png; sourceTree = "<group>"; };
+		9BDCF4FF1F8E62330040928C /* PokerGameDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerGameDelegate.swift; sourceTree = "<group>"; };
+		9BDCF5021F8E629C0040928C /* PokerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokerGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,9 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				9B67C1EF1F8D063E00A2B6C7 /* images */,
+				9B67C1DD1F8D062400A2B6C7 /* AppDelegate.swift */,
 				9B67C2611F8D1B9300A2B6C7 /* Entity */,
 				9BDCF4941F8E5BFB0040928C /* Model */,
-				9B67C1DD1F8D062400A2B6C7 /* AppDelegate.swift */,
 				9B67C1DF1F8D062400A2B6C7 /* ViewController.swift */,
 				9B67C1E11F8D062400A2B6C7 /* Main.storyboard */,
 				9B67C1E41F8D062400A2B6C7 /* Assets.xcassets */,
@@ -186,8 +192,8 @@
 		9B67C1EF1F8D063E00A2B6C7 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9B84BA091F8EA4470020CC2D /* background.png */,
 				9B67C25D1F8D134B00A2B6C7 /* score_background.png */,
-				9B67C2591F8D074300A2B6C7 /* background.png */,
 				9B67C25A1F8D074300A2B6C7 /* cards_back.png */,
 				9B67C1F01F8D064800A2B6C7 /* cards */,
 			);
@@ -265,9 +271,20 @@
 		9BDCF4941F8E5BFB0040928C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9BDCF5011F8E62660040928C /* Delegate */,
 				9BDCF4951F8E5C4C0040928C /* PokerHands.swift */,
+				9BDCF5021F8E629C0040928C /* PokerGame.swift */,
+				9B84BA0B1F8EB4DB0020CC2D /* Hand.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		9BDCF5011F8E62660040928C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				9BDCF4FF1F8E62330040928C /* PokerGameDelegate.swift */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,9 +357,9 @@
 				9BDCF4DC1F8E605D0040928C /* 5d.png in Resources */,
 				9BDCF4E31F8E605D0040928C /* 7c.png in Resources */,
 				9BDCF4FC1F8E605D0040928C /* 13d.png in Resources */,
-				9B67C25B1F8D074300A2B6C7 /* background.png in Resources */,
 				9BDCF4E11F8E605D0040928C /* 6h.png in Resources */,
 				9BDCF4F91F8E605D0040928C /* 12h.png in Resources */,
+				9B84BA0A1F8EA4470020CC2D /* background.png in Resources */,
 				9BDCF4EE1F8E605D0040928C /* 9s.png in Resources */,
 				9BDCF4F81F8E605D0040928C /* 12d.png in Resources */,
 				9BDCF4D21F8E605D0040928C /* 2s.png in Resources */,
@@ -397,10 +414,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B84BA0C1F8EB4DB0020CC2D /* Hand.swift in Sources */,
+				9BDCF5031F8E629C0040928C /* PokerGame.swift in Sources */,
 				9B67C1E01F8D062400A2B6C7 /* ViewController.swift in Sources */,
 				9B67C2601F8D1B3C00A2B6C7 /* Card.swift in Sources */,
 				9BDCF4961F8E5C4C0040928C /* PokerHands.swift in Sources */,
 				9B67C1DE1F8D062400A2B6C7 /* AppDelegate.swift in Sources */,
+				9BDCF5001F8E62330040928C /* PokerGameDelegate.swift in Sources */,
 				9BDCF4921F8E49990040928C /* Slot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

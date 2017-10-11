@@ -17,88 +17,69 @@ class ViewController: UIViewController {
     @IBOutlet weak var card3: UIImageView!
     @IBOutlet weak var card4: UIImageView!
     @IBOutlet weak var card5: UIImageView!
+    @IBOutlet weak var buttonBet25: UIButton!
+    @IBOutlet weak var buttonBet100: UIButton!
+    @IBOutlet weak var buttonAllIn: UIButton!
     
-    //MARK: CARDS
-    var cardSlots: [Slot]!
-    var deckOfCards: [Card]! = []
-    
-    // MARK: Game Controller
-    var hasStarted: Bool!
+    // MARK: Game "Manager"
+    let pokerGame = PokerGame()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hasStarted = false
+        pokerGame.hasStarted = false
         
-        createDeckOfCards()
+        pokerGame.createDeckOfCards()
         
-        cardSlots = [Slot(uiImageView: card1), Slot(uiImageView: card2), Slot(uiImageView: card3), Slot(uiImageView: card4), Slot(uiImageView: card5)]
+        pokerGame.cardSlots = [Slot(uiImageView: card1), Slot(uiImageView: card2), Slot(uiImageView: card3), Slot(uiImageView: card4), Slot(uiImageView: card5)]
         setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
     }
-    
-    func createDeckOfCards() {
-        let suits = ["d", "h", "c", "s"]
-        
-        for suit in suits {
-            for value in 1...13 {
-                let newCard = Card(value: value, suit: suit)
-                deckOfCards.append(newCard)
-            }
-        }
-    }
 
-    @IBAction func doDeal(_ sender: UIButton) {
-        doAnimation()
-        
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(displayRandomCards), userInfo: nil, repeats: false)
-        
-        hasStarted = true
-    }
-    
-    @objc private func displayRandomCards() {
-        
-        for slot in cardSlots {
-            if !slot.isSelected {
-                let randomIndex = Int(arc4random_uniform(UInt32(deckOfCards.count)))
-                slot.uiImageView.stopAnimating()
-                slot.uiImageView.image = deckOfCards[randomIndex].image
-                slot.card = deckOfCards[randomIndex]
-                deckOfCards.remove(at: randomIndex)
-            }
-        }
-    }
-    
-    
     @IBAction func selectCard(_ sender: UIButton) {
-        print("Tag: \(sender.tag)")
-        
-        if hasStarted! {
-            let slot = cardSlots[sender.tag - 1]
-            if slot.isSelected! {
-                slot.uiImageView.layer.borderWidth = 0.5
-                slot.uiImageView.layer.borderColor = UIColor.black.cgColor
-                slot.isSelected = false
-            } else {
-                slot.uiImageView.layer.borderWidth = 1.5
-                slot.uiImageView.layer.borderColor = UIColor.blue.cgColor
-                slot.isSelected = true
-            }
-        }
+        didSelectCard(slotIndex: (sender.tag - 1))
     }
     
-    func selectedCards() -> [Card]! {
-        var selectedCards: [Card]! = []
-        for slot in cardSlots {
-            if slot.isSelected! {
-                selectedCards.append(slot.card!)
-            }
-        }
-        
-        return selectedCards
+    @IBAction func doDeal(_ sender: UIButton) {
+        doDeal()
     }
     
     
+    @IBAction func doBet(_ sender: UIButton) {
+        
+        switch sender.tag {
+        case 1:
+            pokerGame.addBet(total: 25)
+        case 2:
+            pokerGame.addBet(total: 100)
+        case 3:
+            pokerGame.addBet(total: pokerGame.totalCredit)
+        default:
+            break
+        }
+        
+        if pokerGame.totalCredit < 25 {
+            buttonBet25.isEnabled = false
+        }
+        
+        if pokerGame.totalCredit < 100 {
+            buttonBet100.isEnabled = false
+        }
+        
+        if pokerGame.totalCredit < 25 && pokerGame.totalCredit < 100 {
+            buttonAllIn.isEnabled = false
+        }
+        
+    }
+    
+    
+    @IBAction func reset(_ sender: UIButton) {
+        pokerGame.resetGame()
+        setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
+        buttonBet25.isEnabled = true
+        buttonBet100.isEnabled = true
+        buttonAllIn.isEnabled = true
+    }
 }
 
 //MARK: ViewController Style
@@ -115,7 +96,7 @@ extension ViewController {
     
     //MARK: Card's slot Style
     func setCardStyle(radius r: CGFloat, borderWidth w: CGFloat, borderColor c: CGColor, bgColor g: CGColor!) {
-        for slotImageView in cardSlots {
+        for slotImageView in pokerGame.cardSlots {
             slotImageView.uiImageView.clipsToBounds = true
             slotImageView.uiImageView.layer.cornerRadius = r
             slotImageView.uiImageView.layer.borderWidth = w
@@ -125,7 +106,7 @@ extension ViewController {
     }
     
     func doAnimation() {
-        for slotAnimation in cardSlots {
+        for slotAnimation in pokerGame.cardSlots {
             if !slotAnimation.isSelected {
                 let randomImages = imagesToAnimation()
                 prepareAnimations(slot: slotAnimation.uiImageView, duration: 0.2, repeating: 4, cards: randomImages!)
@@ -143,10 +124,71 @@ extension ViewController {
     private func imagesToAnimation() -> [UIImage]! {
         var images = [UIImage]()
         for _ in 1...4 {
-            let randomIndex = Int(arc4random_uniform(UInt32(deckOfCards.count)))
-            images.append(deckOfCards[randomIndex].image)
+            let randomIndex = Int(arc4random_uniform(UInt32(pokerGame.totalCardsOnDeck)))
+            if let card = pokerGame.cardAt(index: randomIndex) {
+                images.append(card.image)
+            }
         }
         return images
     }
+}
+
+// Extension of the ViewController for the delegate pattern with the Game "Manager"
+extension ViewController: PokerGameDelegate {
+    
+    func doDeal() {
+        doAnimation()
+        
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(displayRandomCards), userInfo: nil, repeats: false)
+        
+        pokerGame.hasStarted = true
+        buttonBet25.isEnabled = false
+        buttonBet100.isEnabled = false
+        buttonAllIn.isEnabled = false
+        
+        
+    }
+    
+    @objc func displayRandomCards() {
+        for slot in pokerGame.cardSlots {
+            if !slot.isSelected {
+                let randomIndex = Int(arc4random_uniform(UInt32(pokerGame.totalCardsOnDeck)))
+                slot.uiImageView.stopAnimating()
+                if let card = pokerGame.cardAt(index: randomIndex) {
+                    slot.uiImageView.image = card.image
+                    slot.card = card
+                    pokerGame.deckOfCards.remove(at: randomIndex)
+                }
+            }
+        }
+        
+        if let hand = pokerGame.verifyHands() {
+            print(hand.handName)
+            print(hand.multiplier)
+            
+            let total = pokerGame.totalBet * hand.multiplier
+            pokerGame.totalCredit += total
+            pokerGame.totalBet = 0
+        }
+        
+        print("TOTAL CREDIT: \(pokerGame.totalBet)")
+        print("TOTAL CREDIT: \(pokerGame.totalCredit)")
+    }
+    
+    func didSelectCard(slotIndex: Int!) {
+        if pokerGame.hasStarted! {
+            let slot = pokerGame.cardSlots[slotIndex]
+            if slot.isSelected! {
+                slot.uiImageView.layer.borderWidth = 0.5
+                slot.uiImageView.layer.borderColor = UIColor.black.cgColor
+                slot.isSelected = false
+            } else {
+                slot.uiImageView.layer.borderWidth = 1.5
+                slot.uiImageView.layer.borderColor = UIColor.blue.cgColor
+                slot.isSelected = true
+            }
+        }
+    }
+    
 }
 

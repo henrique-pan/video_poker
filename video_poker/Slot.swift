@@ -23,6 +23,4 @@ class Slot {
         self.isSelected = false
     }
     
-    
-    
 }
