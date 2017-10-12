@@ -73,42 +73,6 @@
                                     <action selector="selectCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Bk-2U-Qzc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCO-Ov-haw">
-                                <rect key="frame" x="300" y="337" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Miser 100"/>
-                                <connections>
-                                    <action selector="doBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xfc-SS-J53"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-Yx-n9S">
-                                <rect key="frame" x="34" y="337" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Recommencer"/>
-                                <connections>
-                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFn-Y5-Zn9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9t-pf-CST">
-                                <rect key="frame" x="178" y="337" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Miser 25"/>
-                                <connections>
-                                    <action selector="doBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sdy-tt-8JP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIr-aV-2cM">
-                                <rect key="frame" x="422" y="337" width="73" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Miser Tout"/>
-                                <connections>
-                                    <action selector="doBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W63-Eb-ZEC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZK-Mw-JdY">
                                 <rect key="frame" x="550" y="337" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -116,6 +80,58 @@
                                 <state key="normal" title="Distribuer"/>
                                 <connections>
                                     <action selector="doDeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V4h-uT-6rU"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DfT-E0-peY">
+                                <rect key="frame" x="169" y="337" width="328" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="betSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZOC-u6-M6o"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-B6-hUG">
+                                <rect key="frame" x="430" y="28" width="65" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiZ-vz-Zht" userLabel="labelCredit">
+                                <rect key="frame" x="503" y="28" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4B-gG-iPo">
+                                <rect key="frame" x="430" y="50" width="65" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-qz-pPU" userLabel="labelBet">
+                                <rect key="frame" x="503" y="50" width="144" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXU-eV-szD" userLabel="labelHand">
+                                <rect key="frame" x="430" y="94" width="204" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-Yx-n9S">
+                                <rect key="frame" x="34" y="111" width="99" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Recommencer"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFn-Y5-Zn9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -172,14 +188,22 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonAllIn" destination="AIr-aV-2cM" id="JpH-qw-jwJ"/>
-                        <outlet property="buttonBet100" destination="dCO-Ov-haw" id="ZoV-8O-56T"/>
-                        <outlet property="buttonBet25" destination="q9t-pf-CST" id="cg8-MP-jUa"/>
+                        <outlet property="betSlider" destination="DfT-E0-peY" id="hdQ-Jd-M2u"/>
+                        <outlet property="buttonCard1" destination="x2K-RH-sz8" id="dIn-BB-CHj"/>
+                        <outlet property="buttonCard2" destination="ePU-6e-osS" id="xWl-7p-HyA"/>
+                        <outlet property="buttonCard3" destination="1j1-ck-c0W" id="LXj-Ho-e2a"/>
+                        <outlet property="buttonCard4" destination="raU-Nm-CDA" id="WqG-ts-2Ah"/>
+                        <outlet property="buttonCard5" destination="h6v-4S-wHI" id="L98-HP-pdd"/>
+                        <outlet property="buttonDeal" destination="RZK-Mw-JdY" id="7gk-II-UZh"/>
+                        <outlet property="buttonReset" destination="5KC-Yx-n9S" id="xsZ-MK-2G7"/>
                         <outlet property="card1" destination="imw-RQ-VBz" id="HbI-pG-UaZ"/>
                         <outlet property="card2" destination="wRa-Y5-Bef" id="rBh-Ex-7ZN"/>
                         <outlet property="card3" destination="691-Px-Hch" id="dSZ-4r-T3t"/>
                         <outlet property="card4" destination="7Bu-dr-ShM" id="byd-dj-Ltu"/>
                         <outlet property="card5" destination="ROr-is-LDt" id="R1S-ld-aJU"/>
+                        <outlet property="labelBet" destination="BKG-qz-pPU" id="BAK-sS-GF4"/>
+                        <outlet property="labelCredit" destination="oiZ-vz-Zht" id="Iki-qG-7dW"/>
+                        <outlet property="labelHand" destination="CXU-eV-szD" id="Ij8-SE-cF7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

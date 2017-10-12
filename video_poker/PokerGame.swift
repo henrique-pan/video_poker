@@ -15,6 +15,7 @@ class PokerGame {
     var cardSlots: [Slot]!
     var deckOfCards: [Card]! = []
     var hasStarted: Bool!
+    var round = 0
     
     var totalBet = 0
     var totalCredit = 1000
@@ -56,9 +57,12 @@ class PokerGame {
         return cards
     }
     
-    func addBet(total: Int) {
-        totalBet += total
-        totalCredit -= total
+    func setBet(total: Int) {
+        totalBet = total
+    }
+    
+    func bet() {
+        totalCredit -= totalBet
     }
     
     func verifyHands() -> Hand? {
@@ -68,7 +72,7 @@ class PokerGame {
             //royalFlush
             var result = pokerHands.royalFlush(hand: cards)
             if result {
-                return Hand(handName: "royalFlush", multiplier: 10)
+                return Hand(handName: "royalFlush", multiplier: 250)
             }
             
             //straightFlush
@@ -130,8 +134,8 @@ class PokerGame {
         for slot in cardSlots {
             slot.card = nil
             slot.isSelected = false
-            let cardsBack = UIImage(named: "cards_back")
-            slot.uiImageView.image = cardsBack
+            //let cardsBack = UIImage(named: "cards_back")
+            //slot.uiImageView.image = cardsBack
         }
     }
     
