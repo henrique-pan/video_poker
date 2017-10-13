@@ -78,19 +78,19 @@ class PokerGame {
             //straightFlush
             result = pokerHands.straightFlush(hand: cards)
             if result {
-                return Hand(handName: "straightFlush", multiplier: 9)
+                return Hand(handName: "straightFlush", multiplier: 50)
             }
             
             //fourKind
             result = pokerHands.fourKind(hand: cards)
             if result {
-                return Hand(handName: "fourKind", multiplier: 8)
+                return Hand(handName: "fourKind", multiplier: 25)
             }
             
             //fullHouse
             result = pokerHands.fullHouse(hand: cards)
             if result {
-                return Hand(handName: "fullHouse", multiplier: 7)
+                return Hand(handName: "fullHouse", multiplier: 9)
             }
             
             //flush
@@ -102,25 +102,25 @@ class PokerGame {
             //straight
             result = pokerHands.straight(hand: cards)
             if result {
-                return Hand(handName: "straight", multiplier: 5)
+                return Hand(handName: "straight", multiplier: 4)
             }
             
             //threeKind
             result = pokerHands.threeKind(hand: cards)
             if result {
-                return Hand(handName: "threeKind", multiplier: 4)
+                return Hand(handName: "threeKind", multiplier: 3)
             }
             
             //twoPairs
             result = pokerHands.twoPairs(hand: cards)
             if result {
-                return Hand(handName: "twoPairs", multiplier: 3)
+                return Hand(handName: "twoPairs", multiplier: 2)
             }
             
             //onePair
             result = pokerHands.onePair(hand: cards)
             if result {
-                return Hand(handName: "onePair", multiplier: 2)
+                return Hand(handName: "onePair", multiplier: 1)
             }
         }
         

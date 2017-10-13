@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var betSlider: UISlider!
     @IBOutlet weak var buttonDeal: UIButton!
-    @IBOutlet weak var buttonReset: UIButton!
     
     @IBOutlet weak var labelCredit: UILabel!
     @IBOutlet weak var labelBet: UILabel!
@@ -48,7 +47,6 @@ class ViewController: UIViewController {
         
         betSlider.maximumValue = 0.0
         betSlider.maximumValue = Float(pokerGame.totalCredit)
-        buttonReset.isEnabled = false
         
         labelCredit.text = String(pokerGame.totalCredit)
         labelBet.text = String(pokerGame.totalBet)
@@ -59,6 +57,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func doDeal(_ sender: UIButton) {
+        print("ROUND: \(pokerGame.round)")
         if pokerGame.round <= 1 {
             if pokerGame.totalBet == 0 {
                 let alertController = UIAlertController(title: "Attention", message: "You should bet to deal!", preferredStyle: .alert)
@@ -68,9 +67,18 @@ class ViewController: UIViewController {
                 
                 present(alertController, animated: true, completion: nil)
             } else {
+                if pokerGame.round == 0 {
+                    pokerGame.bet()
+                    labelCredit.text = String(pokerGame.totalCredit)
+                    labelBet.text = String(pokerGame.totalBet)
+                    betSlider.isEnabled = false
+                }
                 doDeal()
             }
         } else {
+            
+            labelHand.text = ""
+            
             if pokerGame.totalCredit > 0 {
                 pokerGame.resetGame()
                 setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
@@ -86,7 +94,13 @@ class ViewController: UIViewController {
                 let defaultAction = UIAlertAction(title: "Yes", style: .default, handler: {
                     action in
                     self.pokerGame.totalCredit = 1000
-                    self.reset(sender)
+                    self.pokerGame.resetGame()
+                    self.setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
+                    
+                    self.enableCardSelection(value: true)
+                    
+                    self.pokerGame.totalBet = 0
+                    self.pokerGame.round = 0
                 })
                 alertController.addAction(defaultAction)
                 
@@ -102,29 +116,6 @@ class ViewController: UIViewController {
         pokerGame.setBet(total: currentValue)
     }
     
-    
-    @IBAction func reset(_ sender: UIButton) {
-        if pokerGame.totalCredit > 0 {
-            pokerGame.resetGame()
-            setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
-            
-            enableCardSelection(value: true)
-            
-            pokerGame.totalBet = 0
-            pokerGame.round = 0
-        } else {
-            let alertController = UIAlertController(title: "You need credit", message: "Do you want to buy more $1000?", preferredStyle: .alert)
-            
-            let defaultAction = UIAlertAction(title: "Yes", style: .default, handler: {
-                action in
-                self.pokerGame.totalCredit = 1000
-                self.reset(sender)
-            })
-            alertController.addAction(defaultAction)
-            
-            present(alertController, animated: true, completion: nil)
-        }
-    }
 }
 
 //MARK: ViewController Style
@@ -216,17 +207,18 @@ extension ViewController: PokerGameDelegate {
                 pokerGame.totalCredit += total
                 pokerGame.totalBet = 0
                 labelHand.text = hand.handName
+            } else {
+                labelHand.text = ""
+                pokerGame.totalBet = 0
             }
             
             enableCardSelection(value: false)
+            labelCredit.text = String(pokerGame.totalCredit)
+            labelBet.text = String(pokerGame.totalBet)
+
             betSlider.maximumValue = 0.0
             betSlider.maximumValue = Float(pokerGame.totalCredit)
             betSlider.isEnabled = true
-        } else {
-            pokerGame.bet()
-            labelCredit.text = String(pokerGame.totalCredit)
-            labelBet.text = String(pokerGame.totalBet)
-            betSlider.isEnabled = false
         }
         
         pokerGame.round += 1

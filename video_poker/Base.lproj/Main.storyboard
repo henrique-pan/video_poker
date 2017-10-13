@@ -125,15 +125,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KC-Yx-n9S">
-                                <rect key="frame" x="34" y="111" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Recommencer"/>
-                                <connections>
-                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFn-Y5-Zn9"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -195,7 +186,6 @@
                         <outlet property="buttonCard4" destination="raU-Nm-CDA" id="WqG-ts-2Ah"/>
                         <outlet property="buttonCard5" destination="h6v-4S-wHI" id="L98-HP-pdd"/>
                         <outlet property="buttonDeal" destination="RZK-Mw-JdY" id="7gk-II-UZh"/>
-                        <outlet property="buttonReset" destination="5KC-Yx-n9S" id="xsZ-MK-2G7"/>
                         <outlet property="card1" destination="imw-RQ-VBz" id="HbI-pG-UaZ"/>
                         <outlet property="card2" destination="wRa-Y5-Bef" id="rBh-Ex-7ZN"/>
                         <outlet property="card3" destination="691-Px-Hch" id="dSZ-4r-T3t"/>
