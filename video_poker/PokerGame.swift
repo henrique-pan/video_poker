@@ -77,55 +77,55 @@ class PokerGame {
             //royalFlush
             var result = pokerHands.royalFlush(hand: cards)
             if result {
-                return Hand(handName: "royalFlush", multiplier: 250)
+                return Hand(handName: "Royal Flush", multiplier: 250)
             }
             
             //straightFlush
             result = pokerHands.straightFlush(hand: cards)
             if result {
-                return Hand(handName: "straightFlush", multiplier: 50)
+                return Hand(handName: "Straight Flush", multiplier: 50)
             }
             
             //fourKind
             result = pokerHands.fourKind(hand: cards)
             if result {
-                return Hand(handName: "fourKind", multiplier: 25)
+                return Hand(handName: "Four Kind", multiplier: 25)
             }
             
             //fullHouse
             result = pokerHands.fullHouse(hand: cards)
             if result {
-                return Hand(handName: "fullHouse", multiplier: 9)
+                return Hand(handName: "Full House", multiplier: 9)
             }
             
             //flush
             result = pokerHands.flush(hand: cards)
             if result {
-                return Hand(handName: "flush", multiplier: 6)
+                return Hand(handName: "Flush", multiplier: 6)
             }
             
             //straight
             result = pokerHands.straight(hand: cards)
             if result {
-                return Hand(handName: "straight", multiplier: 4)
+                return Hand(handName: "Straight", multiplier: 4)
             }
             
             //threeKind
             result = pokerHands.threeKind(hand: cards)
             if result {
-                return Hand(handName: "threeKind", multiplier: 3)
+                return Hand(handName: "Three Kind", multiplier: 3)
             }
             
             //twoPairs
             result = pokerHands.twoPairs(hand: cards)
             if result {
-                return Hand(handName: "twoPairs", multiplier: 2)
+                return Hand(handName: "Two Pairs", multiplier: 2)
             }
             
             //onePair
             result = pokerHands.onePair(hand: cards)
             if result {
-                return Hand(handName: "onePair", multiplier: 1)
+                return Hand(handName: "One Pair", multiplier: 1)
             }
         }
         
@@ -146,7 +146,9 @@ class PokerGame {
         let image = UIImage(named: "cards_back")
         for slot in cardSlots {
             slot.uiImageView.image = image
-            delegate.didResetCard(slot: slot)
+            if slot.isSelected {
+                delegate.didResetCard(slot: slot, isSelected: false)
+            }
         }
     } 
     

@@ -36,11 +36,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var card3Background: UIView!
     @IBOutlet weak var card4Background: UIView!
     @IBOutlet weak var card5Background: UIView!
-    var arrOfBackgrounds: [UIView]!
+    @IBOutlet weak var labelCard1Hold: UILabel!
+    @IBOutlet weak var labelCard2Hold: UILabel!
+    @IBOutlet weak var labelCard3Hold: UILabel!
+    @IBOutlet weak var labelCard4Hold: UILabel!
+    @IBOutlet weak var labelCard5Hold: UILabel!
     
     // MARK: Game "Manager"
     let pokerGame = PokerGame()
-    var cardSlots: [Slot?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,16 +52,17 @@ class ViewController: UIViewController {
         pokerGame.hasStarted = false
         
         pokerGame.createDeckOfCards()
-        pokerGame.cardSlots = [Slot(uiImageView: card1), Slot(uiImageView: card2), Slot(uiImageView: card3), Slot(uiImageView: card4), Slot(uiImageView: card5)]
-        arrOfBackgrounds = [card1Background, card2Background, card3Background, card4Background, card5Background]
+        pokerGame.cardSlots = [Slot(uiImageView: card1, backgroundView: card1Background, labelHold: labelCard1Hold),
+                               Slot(uiImageView: card2, backgroundView: card2Background, labelHold: labelCard2Hold),
+                               Slot(uiImageView: card3, backgroundView: card3Background, labelHold: labelCard3Hold),
+                               Slot(uiImageView: card4, backgroundView: card4Background, labelHold: labelCard4Hold),
+                               Slot(uiImageView: card5, backgroundView: card5Background, labelHold: labelCard5Hold)]
         
         setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
-        setCardSlotStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor)
         
         var image = UIImage(named: "chip.png")
         image = resizeImage(image: image!, newWidth: CGFloat(30))
         betSlider.setThumbImage(image!, for: UIControlState.normal)
-        //betSlider.setThumbImage(UIImage(named: "chip"), for: UIControlState.highlighted)
         
         betSlider.maximumValue = 0.0
         betSlider.maximumValue = Float(pokerGame.totalCredit)
@@ -159,15 +163,6 @@ class ViewController: UIViewController {
 //MARK: ViewController Style
 extension ViewController {
     
-    //MARK: Status Bar Style
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
-    
     func enableCardSelection(value: Bool!) {
         buttonCard1.isEnabled = value
         buttonCard2.isEnabled = value
@@ -178,21 +173,19 @@ extension ViewController {
     
     //MARK: Card's Style
     func setCardStyle(radius r: CGFloat, borderWidth w: CGFloat, borderColor c: CGColor, bgColor g: CGColor!) {
-        for slotImageView in pokerGame.cardSlots {
-            slotImageView.uiImageView.clipsToBounds = true
-            slotImageView.uiImageView.layer.cornerRadius = r
-            slotImageView.uiImageView.layer.borderWidth = w
-            slotImageView.uiImageView.layer.borderColor = c
-            slotImageView.uiImageView.layer.backgroundColor = g
-        }
-    }
-    
-    func setCardSlotStyle(radius r: CGFloat, borderWidth w: CGFloat?, borderColor c: CGColor)  {
-        for bgView in arrOfBackgrounds {
-            bgView.clipsToBounds = true
-            bgView.layer.cornerRadius = r
-            bgView.layer.borderWidth = w ?? 0
-            bgView.layer.borderColor = c
+        for slot in pokerGame.cardSlots {
+            slot.uiImageView.clipsToBounds = true
+            slot.uiImageView.layer.cornerRadius = r
+            slot.uiImageView.layer.borderWidth = w
+            slot.uiImageView.layer.borderColor = c
+            slot.uiImageView.layer.backgroundColor = g
+            
+            slot.backgroundView.clipsToBounds = true
+            slot.backgroundView.layer.cornerRadius = r
+            slot.backgroundView.layer.borderColor = c
+            slot.backgroundView.backgroundColor = UIColor.clear
+            
+            slot.labelHold.isHidden = true
         }
     }
     
@@ -274,21 +267,25 @@ extension ViewController: PokerGameDelegate {
     func didSelectCard(slot: Slot!) {
         if pokerGame.hasStarted! {
             if slot.isSelected! {
-                slot.uiImageView.layer.borderWidth = 0.5
-                slot.uiImageView.layer.borderColor = UIColor.black.cgColor
+                slot.backgroundView.backgroundColor = UIColor.clear
+                slot.labelHold.isHidden = true
                 slot.isSelected = false
             } else {
-                slot.uiImageView.layer.borderWidth = 1.5
-                slot.uiImageView.layer.borderColor = UIColor.blue.cgColor
-                slot.isSelected = true
+                didResetCard(slot: slot, isSelected: true)
             }
         }
     }
     
-    func didResetCard(slot: Slot!) {
-        slot.uiImageView.layer.borderWidth = 0.5
-        slot.uiImageView.layer.borderColor = UIColor.black.cgColor
-        slot.isSelected = false
+    func didResetCard(slot: Slot!, isSelected: Bool!) {
+        if isSelected {
+            slot.backgroundView.backgroundColor = UIColor(red: 247/255, green: 204/255, blue: 75/255, alpha: 1)
+            slot.labelHold.isHidden = false
+            slot.isSelected = true
+        } else {
+            slot.backgroundView.backgroundColor = UIColor.clear
+            slot.labelHold.isHidden = true
+            slot.isSelected = false
+        }
     }
     
 }

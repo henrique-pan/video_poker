@@ -13,7 +13,6 @@
 		9B67C1E51F8D062400A2B6C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C1E41F8D062400A2B6C7 /* Assets.xcassets */; };
 		9B67C1E81F8D062400A2B6C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C1E61F8D062400A2B6C7 /* LaunchScreen.storyboard */; };
 		9B67C25C1F8D074300A2B6C7 /* cards_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C25A1F8D074300A2B6C7 /* cards_back.png */; };
-		9B67C25E1F8D134B00A2B6C7 /* score_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B67C25D1F8D134B00A2B6C7 /* score_background.png */; };
 		9B67C2601F8D1B3C00A2B6C7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B67C25F1F8D1B3C00A2B6C7 /* Card.swift */; };
 		9B84BA0A1F8EA4470020CC2D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B84BA091F8EA4470020CC2D /* background.png */; };
 		9B84BA0C1F8EB4DB0020CC2D /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84BA0B1F8EB4DB0020CC2D /* Hand.swift */; };
@@ -76,6 +75,8 @@
 		BE2A3EF71F93BC7100F13DCB /* chip.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2A3EF61F93BC7100F13DCB /* chip.png */; };
 		BE2A3EF91F93C3E500F13DCB /* PokerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2A3EF81F93C3E500F13DCB /* PokerSlider.swift */; };
 		BE2A3EFB1F93C87200F13DCB /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2A3EFA1F93C87200F13DCB /* button2.png */; };
+		BE6839DA1F93FDFA001A9B17 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6839D91F93FDFA001A9B17 /* launch.png */; };
+		BE6839DC1F940105001A9B17 /* score-background.png in Resources */ = {isa = PBXBuildFile; fileRef = BE6839DB1F940105001A9B17 /* score-background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,7 +88,6 @@
 		9B67C1E71F8D062400A2B6C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B67C1E91F8D062400A2B6C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B67C25A1F8D074300A2B6C7 /* cards_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cards_back.png; path = images/cards_back.png; sourceTree = "<group>"; };
-		9B67C25D1F8D134B00A2B6C7 /* score_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = score_background.png; path = images/score_background.png; sourceTree = "<group>"; };
 		9B67C25F1F8D1B3C00A2B6C7 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9B84BA091F8EA4470020CC2D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = images/background.png; sourceTree = "<group>"; };
 		9B84BA0B1F8EB4DB0020CC2D /* Hand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
@@ -150,6 +150,8 @@
 		BE2A3EF61F93BC7100F13DCB /* chip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chip.png; path = images/chip.png; sourceTree = "<group>"; };
 		BE2A3EF81F93C3E500F13DCB /* PokerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokerSlider.swift; sourceTree = "<group>"; };
 		BE2A3EFA1F93C87200F13DCB /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button2.png; path = images/button2.png; sourceTree = "<group>"; };
+		BE6839D91F93FDFA001A9B17 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = images/launch.png; sourceTree = "<group>"; };
+		BE6839DB1F940105001A9B17 /* score-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "score-background.png"; path = "images/score-background.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,10 +200,11 @@
 		9B67C1EF1F8D063E00A2B6C7 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				BE6839DB1F940105001A9B17 /* score-background.png */,
+				BE6839D91F93FDFA001A9B17 /* launch.png */,
 				BE2A3EFA1F93C87200F13DCB /* button2.png */,
 				BE2A3EF61F93BC7100F13DCB /* chip.png */,
 				9B84BA091F8EA4470020CC2D /* background.png */,
-				9B67C25D1F8D134B00A2B6C7 /* score_background.png */,
 				9B67C25A1F8D074300A2B6C7 /* cards_back.png */,
 				9B67C1F01F8D064800A2B6C7 /* cards */,
 			);
@@ -372,6 +375,7 @@
 				9BDCF4F91F8E605D0040928C /* 12h.png in Resources */,
 				9B84BA0A1F8EA4470020CC2D /* background.png in Resources */,
 				9BDCF4EE1F8E605D0040928C /* 9s.png in Resources */,
+				BE6839DC1F940105001A9B17 /* score-background.png in Resources */,
 				9BDCF4F81F8E605D0040928C /* 12d.png in Resources */,
 				9BDCF4D21F8E605D0040928C /* 2s.png in Resources */,
 				9B67C1E81F8D062400A2B6C7 /* LaunchScreen.storyboard in Resources */,
@@ -408,9 +412,9 @@
 				9BDCF4F31F8E605D0040928C /* 11c.png in Resources */,
 				9BDCF4EC1F8E605D0040928C /* 9d.png in Resources */,
 				9BDCF4D31F8E605D0040928C /* 3c.png in Resources */,
-				9B67C25E1F8D134B00A2B6C7 /* score_background.png in Resources */,
 				9BDCF4E51F8E605D0040928C /* 7h.png in Resources */,
 				9BDCF4CC1F8E605D0040928C /* 1d.png in Resources */,
+				BE6839DA1F93FDFA001A9B17 /* launch.png in Resources */,
 				9BDCF4E71F8E605D0040928C /* 8c.png in Resources */,
 				9BDCF4D51F8E605D0040928C /* 3h.png in Resources */,
 				9B67C1E31F8D062400A2B6C7 /* Main.storyboard in Resources */,

@@ -18,6 +18,6 @@ protocol PokerGameDelegate {
     
     func didSelectCard(slot: Slot!)
     
-    func didResetCard(slot: Slot!)
+    func didResetCard(slot: Slot!, isSelected: Bool!)
     
 }
