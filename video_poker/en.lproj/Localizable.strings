@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  video_poker
+
+  Created by Henrique Nascimento on 2017-10-15.
+  Copyright © 2017 com.henrique. All rights reserved.
+*/
+"Royal Flush" = "Royal Flush";
+"Straight Flush" = "Straight Flush";
+"Four Kind" = "Four Kind";
+"Full House" = "Full House";
+"Flush" = "Flush";
+"Straight" = "Straight";
+"Three Kind" = "Three Kind";
+"Two Pairs" = "Two Pairs";
+"One Pair" = "One Pair";

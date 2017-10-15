@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  video_poker
+
+  Created by Henrique Nascimento on 2017-10-15.
+  Copyright © 2017 com.henrique. All rights reserved.
+*/
+"Royal Flush" = "Quinte royale";
+"Straight Flush" = "Quinte";
+"Four Kind" = "Carre";
+"Full House" = "Main pleine";
+"Flush" = "Couleur";
+"Straight" = "Sequence";
+"Three Kind" = "Brelan";
+"Two Pairs" = "Double paire";
+"One Pair" = "Paire";
+
+"You need credit" = "Vous avez besoin de crédit";
+"Do you want to buy more $1000?" = "Voulez-vous acheter plus $1000?";
+"Yes" = "Oui";
+"No" = "Non";
+"Attention" = "Attention";
+"You should bet to deal!" = "Vous devez faire un pari pour jouer!";
+"Ok" = "D'accord";

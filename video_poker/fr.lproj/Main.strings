@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Credit:"; ObjectID = "2Md-B6-hUG"; */
+"2Md-B6-hUG.text" = "Crédit:";
+
+/* Class = "UILabel"; text = "Hold"; ObjectID = "94H-e4-5Lu"; */
+"94H-e4-5Lu.text" = "Prise";
+
+/* Class = "UILabel"; text = "Hand:"; ObjectID = "BI5-hb-LDF"; */
+"BI5-hb-LDF.text" = "Hand:";
+
+/* Class = "UILabel"; text = "Hold"; ObjectID = "G9Y-k2-FpF"; */
+"G9Y-k2-FpF.text" = "Prise";
+
+/* Class = "UILabel"; text = "Bet:"; ObjectID = "N4B-gG-iPo"; */
+"N4B-gG-iPo.text" = "Pari:";
+
+/* Class = "UILabel"; text = "Hold"; ObjectID = "afS-UF-F2c"; */
+"afS-UF-F2c.text" = "Prise";
+
+/* Class = "UILabel"; text = "Hold"; ObjectID = "huN-S8-aBC"; */
+"huN-S8-aBC.text" = "Prise";
+
+/* Class = "UILabel"; text = "Hold"; ObjectID = "i7r-Lf-bu2"; */
+"i7r-Lf-bu2.text" = "Prise";
+
+/* Class = "UILabel"; text = "Deal"; ObjectID = "nsn-Qj-Xcp"; */
+"nsn-Qj-Xcp.text" = "Distribuer";

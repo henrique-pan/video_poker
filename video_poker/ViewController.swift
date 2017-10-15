@@ -87,9 +87,10 @@ class ViewController: UIViewController {
         print("ROUND: \(pokerGame.round)")
         if pokerGame.round <= 1 {
             if pokerGame.totalBet == 0 {
-                let alertController = UIAlertController(title: "Attention", message: "You should bet to deal!", preferredStyle: .alert)
+                let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""),
+                                                      message: NSLocalizedString("You should bet to deal!", comment: ""), preferredStyle: .alert)
                   
-                let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil)
                 alertController.addAction(defaultAction)
                 
                 present(alertController, animated: true, completion: nil)
@@ -116,9 +117,10 @@ class ViewController: UIViewController {
 
                 doDeal(sender)
             } else {
-                let alertController = UIAlertController(title: "You need credit", message: "Do you want to buy more $1000?", preferredStyle: .alert)
+                let alertController = UIAlertController(title: NSLocalizedString("You need credit", comment: ""),
+                                                      message: NSLocalizedString("Do you want to buy more $1000?", comment: ""), preferredStyle: .alert)
                 
-                let yesAction = UIAlertAction(title: "Yes", style: .default, handler: {
+                let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: {
                     action in
                     self.pokerGame.totalCredit = 1000
                     self.pokerGame.resetGame()
@@ -136,7 +138,7 @@ class ViewController: UIViewController {
                 })
                 alertController.addAction(yesAction)
                 
-                let noAction = UIAlertAction(title: "No", style: .default, handler: {
+                let noAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .default, handler: {
                     action in
                     self.pokerGame.setBackCards()
                 })

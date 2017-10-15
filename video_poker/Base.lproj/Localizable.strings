@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  video_poker
+
+  Created by Henrique Nascimento on 2017-10-15.
+  Copyright © 2017 com.henrique. All rights reserved.
+*/
+"Royal Flush" = "Royal Flush";
+"Straight Flush" = "Straight Flush";
+"Four Kind" = "Four Kind";
+"Full House" = "Full House";
+"Flush" = "Flush";
+"Straight" = "Straight";
+"Three Kind" = "Three Kind";
+"Two Pairs" = "Two Pairs";
+"One Pair" = "One Pair";
+
+"You need credit" = "You need credit";
+"Do you want to buy more $1000?" = "Do you want to buy more $1000?";
+"Yes" = "Yes";
+"No" = "No";
+"Attention" = "Attention";
+"You should bet to deal!" = "You should bet to deal!";
+"Ok" = "Ok";
