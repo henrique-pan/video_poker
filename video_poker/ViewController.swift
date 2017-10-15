@@ -31,19 +31,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelBet: UILabel!
     @IBOutlet weak var labelHand: UILabel!
     
+    @IBOutlet weak var card1Background: UIView!
+    @IBOutlet weak var card2Background: UIView!
+    @IBOutlet weak var card3Background: UIView!
+    @IBOutlet weak var card4Background: UIView!
+    @IBOutlet weak var card5Background: UIView!
+    var arrOfBackgrounds: [UIView]!
+    
     // MARK: Game "Manager"
     let pokerGame = PokerGame()
+    var cardSlots: [Slot?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pokerGame.delegate = self
         pokerGame.hasStarted = false
         
         pokerGame.createDeckOfCards()
-        
         pokerGame.cardSlots = [Slot(uiImageView: card1), Slot(uiImageView: card2), Slot(uiImageView: card3), Slot(uiImageView: card4), Slot(uiImageView: card5)]
+        arrOfBackgrounds = [card1Background, card2Background, card3Background, card4Background, card5Background]
         
         setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
+        setCardSlotStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor)
+        
+        var image = UIImage(named: "chip.png")
+        image = resizeImage(image: image!, newWidth: CGFloat(30))
+        betSlider.setThumbImage(image!, for: UIControlState.normal)
+        //betSlider.setThumbImage(UIImage(named: "chip"), for: UIControlState.highlighted)
         
         betSlider.maximumValue = 0.0
         betSlider.maximumValue = Float(pokerGame.totalCredit)
@@ -52,8 +67,16 @@ class ViewController: UIViewController {
         labelBet.text = String(pokerGame.totalBet)
     }
     
-    @IBAction func selectCard(_ sender: UIButton) {
-        didSelectCard(slotIndex: (sender.tag - 1))
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage? {
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
     
     @IBAction func doDeal(_ sender: UIButton) {
@@ -73,7 +96,7 @@ class ViewController: UIViewController {
                     labelBet.text = String(pokerGame.totalBet)
                     betSlider.isEnabled = false
                 }
-                doDeal()
+                didPlay()
             }
         } else {
             
@@ -91,7 +114,7 @@ class ViewController: UIViewController {
             } else {
                 let alertController = UIAlertController(title: "You need credit", message: "Do you want to buy more $1000?", preferredStyle: .alert)
                 
-                let defaultAction = UIAlertAction(title: "Yes", style: .default, handler: {
+                let yesAction = UIAlertAction(title: "Yes", style: .default, handler: {
                     action in
                     self.pokerGame.totalCredit = 1000
                     self.pokerGame.resetGame()
@@ -101,14 +124,29 @@ class ViewController: UIViewController {
                     
                     self.pokerGame.totalBet = 0
                     self.pokerGame.round = 0
+                    
+                    self.betSlider.maximumValue = 0.0
+                    self.betSlider.maximumValue = Float(self.pokerGame.totalCredit)
+                    self.labelCredit.text = String(self.pokerGame.totalCredit)
+                    self.labelBet.text = String(self.pokerGame.totalBet)
                 })
-                alertController.addAction(defaultAction)
+                alertController.addAction(yesAction)
+                
+                let noAction = UIAlertAction(title: "No", style: .default, handler: {
+                    action in
+                    self.pokerGame.setBackCards()
+                })
+                alertController.addAction(noAction)
                 
                 present(alertController, animated: true, completion: nil)
             }
         }
     }
     
+    @IBAction func selectCard(_ sender: UIButton) {
+        let slot = pokerGame.cardSlots[sender.tag - 1]
+        didSelectCard(slot: slot)
+    }
     
     @IBAction func betSliderValueChanged(_ sender: UISlider) {
         let currentValue = Int(sender.value)
@@ -138,7 +176,7 @@ extension ViewController {
         buttonCard5.isEnabled = value
     }
     
-    //MARK: Card's slot Style
+    //MARK: Card's Style
     func setCardStyle(radius r: CGFloat, borderWidth w: CGFloat, borderColor c: CGColor, bgColor g: CGColor!) {
         for slotImageView in pokerGame.cardSlots {
             slotImageView.uiImageView.clipsToBounds = true
@@ -149,23 +187,16 @@ extension ViewController {
         }
     }
     
-    func doAnimation() {
-        for slotAnimation in pokerGame.cardSlots {
-            if !slotAnimation.isSelected {
-                let randomImages = imagesToAnimation()
-                prepareAnimations(slot: slotAnimation.uiImageView, duration: 0.2, repeating: 4, cards: randomImages!)
-                slotAnimation.uiImageView.startAnimating()
-            }
+    func setCardSlotStyle(radius r: CGFloat, borderWidth w: CGFloat?, borderColor c: CGColor)  {
+        for bgView in arrOfBackgrounds {
+            bgView.clipsToBounds = true
+            bgView.layer.cornerRadius = r
+            bgView.layer.borderWidth = w ?? 0
+            bgView.layer.borderColor = c
         }
     }
     
-    private func prepareAnimations(slot: UIImageView, duration d: Double, repeating r: Int, cards c: [UIImage]) {
-        slot.animationDuration = d
-        slot.animationRepeatCount = r
-        slot.animationImages = c
-    }
-    
-    private func imagesToAnimation() -> [UIImage]! {
+    func imagesToAnimation() -> [UIImage]! {
         var images = [UIImage]()
         for _ in 1...4 {
             let randomIndex = Int(arc4random_uniform(UInt32(pokerGame.totalCardsOnDeck)))
@@ -180,12 +211,25 @@ extension ViewController {
 // Extension of the ViewController for the delegate pattern with the Game "Manager"
 extension ViewController: PokerGameDelegate {
     
-    func doDeal() {
+    func didPlay() {
         doAnimation()
         
         Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(displayRandomCards), userInfo: nil, repeats: false)
         
         pokerGame.hasStarted = true
+    }
+    
+    func doAnimation() {
+        for slotAnimation in pokerGame.cardSlots {
+            if !slotAnimation.isSelected {
+                let randomImages = imagesToAnimation()
+                slotAnimation.uiImageView.animationDuration = 0.2
+                slotAnimation.uiImageView.animationRepeatCount = 4
+                slotAnimation.uiImageView.animationImages = randomImages!
+                
+                slotAnimation.uiImageView.startAnimating()
+            }
+        }
     }
     
     @objc func displayRandomCards() {
@@ -227,9 +271,8 @@ extension ViewController: PokerGameDelegate {
         labelBet.text = String(pokerGame.totalBet)
     }
     
-    func didSelectCard(slotIndex: Int!) {
+    func didSelectCard(slot: Slot!) {
         if pokerGame.hasStarted! {
-            let slot = pokerGame.cardSlots[slotIndex]
             if slot.isSelected! {
                 slot.uiImageView.layer.borderWidth = 0.5
                 slot.uiImageView.layer.borderColor = UIColor.black.cgColor
@@ -240,6 +283,12 @@ extension ViewController: PokerGameDelegate {
                 slot.isSelected = true
             }
         }
+    }
+    
+    func didResetCard(slot: Slot!) {
+        slot.uiImageView.layer.borderWidth = 0.5
+        slot.uiImageView.layer.borderColor = UIColor.black.cgColor
+        slot.isSelected = false
     }
     
 }

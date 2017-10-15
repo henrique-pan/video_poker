@@ -10,10 +10,14 @@ import Foundation
 
 protocol PokerGameDelegate {
     
-    func doDeal()
+    func didPlay()
+    
+    func doAnimation()
     
     func displayRandomCards()
     
-    func didSelectCard(slotIndex: Int!)
+    func didSelectCard(slot: Slot!)
+    
+    func didResetCard(slot: Slot!)
     
 }

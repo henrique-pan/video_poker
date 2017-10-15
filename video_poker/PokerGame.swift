@@ -21,7 +21,12 @@ class PokerGame {
     var totalCredit = 1000
     
     let pokerHands = PokerHands()
+    var delegate: PokerGameDelegate!
     
+    init() {
+        hasStarted = false
+    }
+
     func createDeckOfCards() {
         let suits = ["d", "h", "c", "s"]
         
@@ -134,11 +139,15 @@ class PokerGame {
         for slot in cardSlots {
             slot.card = nil
             slot.isSelected = false
-            //let cardsBack = UIImage(named: "cards_back")
-            //slot.uiImageView.image = cardsBack
         }
     }
     
-   
+    func setBackCards() {
+        let image = UIImage(named: "cards_back")
+        for slot in cardSlots {
+            slot.uiImageView.image = image
+            delegate.didResetCard(slot: slot)
+        }
+    } 
     
 }
