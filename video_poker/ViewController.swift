@@ -86,12 +86,14 @@ class ViewController: UIViewController {
     //MARK: Actions
     // Deal button action: shuffle, animation, bet and components status update
     @IBAction func doDeal(_ sender: UIButton) {
+        sender.isEnabled = false
         // If it's not the final round
         if pokerGame.round <= 1 {
             // If the user did't bet
             if pokerGame.totalBet == 0 {
                 let alertController = shouldBetAlertController()
                 present(alertController, animated: true, completion: nil)
+                buttonDeal.isEnabled = true
             } else {
                 // If it's the initial round
                 if pokerGame.round == 0 {
@@ -121,6 +123,7 @@ class ViewController: UIViewController {
                 //Show alert controller "asking for money"
                 let alertController = moreCreditAlertController()
                 present(alertController, animated: true, completion: nil)
+                buttonDeal.isEnabled = true
             }
         }
     }
@@ -181,12 +184,14 @@ class ViewController: UIViewController {
             
             self.labelBet.text = String(self.pokerGame.totalBet)
             self.labelCredit.text = String(self.pokerGame.totalCredit)
+            self.buttonDeal.isEnabled = true
         })
         alertController.addAction(yesAction)
         
         let noAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .default, handler: {
             action in
             self.pokerGame.setBackCards()
+            self.buttonDeal.isEnabled = true
         })
         alertController.addAction(noAction)
         
@@ -322,6 +327,7 @@ extension ViewController: PokerGameDelegate {
         // Set the current score
         labelBet.text = String(pokerGame.totalBet)
         labelCredit.text = String(pokerGame.totalCredit)
+        buttonDeal.isEnabled = true
     }
     
     func didSelectCard(slot: Slot!) {
