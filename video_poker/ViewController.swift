@@ -86,44 +86,52 @@ class ViewController: UIViewController {
     //MARK: Actions
     // Deal button action: shuffle, animation, bet and components status update
     @IBAction func doDeal(_ sender: UIButton) {
-        sender.isEnabled = false
-        // If it's not the final round
-        if pokerGame.round <= 1 {
-            // If the user did't bet
-            if pokerGame.totalBet == 0 {
-                let alertController = shouldBetAlertController()
-                present(alertController, animated: true, completion: nil)
-                buttonDeal.isEnabled = true
-            } else {
-                // If it's the initial round
-                if pokerGame.round == 0 {
-                    pokerGame.bet()
-                    labelCredit.text = String(pokerGame.totalCredit)
-                    labelBet.text = String(pokerGame.totalBet)
-                    // Disable the slider
-                    betSlider.isEnabled = false
-                }
-                didPlay()
-            }
+        if pokerGame.round == 0 && pokerGame.totalCredit == 0 {
+            //Show alert controller "asking for money"
+            let alertController = moreCreditAlertController()
+            present(alertController, animated: true, completion: nil)
+            buttonDeal.isEnabled = true
         } else {
+            sender.isEnabled = false
             
-            labelHand.text = ""
-            
-            // If there is still credit
-            if pokerGame.totalCredit > 0 {
-                pokerGame.resetGame()
-                setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
-                
-                enableCardSelection(value: true)
-
-                pokerGame.round = 0
-
-                doDeal(sender)
+            // If it's not the final round
+            if pokerGame.round <= 1 {
+                // If the user did't bet
+                if pokerGame.totalBet == 0 {
+                    let alertController = shouldBetAlertController()
+                    present(alertController, animated: true, completion: nil)
+                    buttonDeal.isEnabled = true
+                } else {
+                    // If it's the initial round
+                    if pokerGame.round == 0 {
+                        pokerGame.bet()
+                        labelCredit.text = String(pokerGame.totalCredit)
+                        labelBet.text = String(pokerGame.totalBet)
+                        // Disable the slider
+                        betSlider.isEnabled = false
+                    }
+                    didPlay()
+                }
             } else {
-                //Show alert controller "asking for money"
-                let alertController = moreCreditAlertController()
-                present(alertController, animated: true, completion: nil)
-                buttonDeal.isEnabled = true
+                
+                labelHand.text = ""
+                
+                // If there is still credit
+                if pokerGame.totalCredit > 0 {
+                    pokerGame.resetGame()
+                    setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
+                    
+                    enableCardSelection(value: true)
+                    
+                    pokerGame.round = 0
+                    
+                    doDeal(sender)
+                } else {
+                    //Show alert controller "asking for money"
+                    let alertController = moreCreditAlertController()
+                    present(alertController, animated: true, completion: nil)
+                    buttonDeal.isEnabled = true
+                }
             }
         }
     }
@@ -172,6 +180,7 @@ class ViewController: UIViewController {
             action in
             self.pokerGame.resetGame()
             self.pokerGame.totalCredit = 1000
+            UserDefaults.standard.set(self.pokerGame.totalCredit, forKey: "totalCredit")
             self.setCardStyle(radius: 10, borderWidth: 0.5, borderColor: UIColor.black.cgColor, bgColor: UIColor.yellow.cgColor)
             
             self.enableCardSelection(value: true)
@@ -301,6 +310,7 @@ extension ViewController: PokerGameDelegate {
             if let hand = pokerGame.verifyHands() {
                 let total = pokerGame.totalBet * hand.multiplier
                 pokerGame.totalCredit += total
+                UserDefaults.standard.set(self.pokerGame.totalCredit, forKey: "totalCredit")
                 pokerGame.totalBet = 0
                 labelHand.text = hand.handName
             } else {

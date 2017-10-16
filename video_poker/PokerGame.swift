@@ -20,13 +20,20 @@ class PokerGame {
     var round = 0
     
     var totalBet = 0
-    var totalCredit = 1000
+    var totalCredit = 0
     
     let pokerHands = PokerHands()
     var delegate: PokerGameDelegate!
     
     init() {
         hasStarted = false
+        
+        if let storedValue = UserDefaults.standard.object(forKey: "totalCredit") as? Int! ?? 0 {
+            totalCredit = storedValue
+        } else {
+            totalCredit = 1000
+        }
+        
     }
 
     func createDeckOfCards() {
@@ -70,6 +77,7 @@ class PokerGame {
     
     func bet() {
         totalCredit -= totalBet
+        UserDefaults.standard.set(totalCredit, forKey: "totalCredit")
     }
     
     
