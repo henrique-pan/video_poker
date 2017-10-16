@@ -9,10 +9,8 @@
 import Foundation
 import UIKit
 
-func NSLocalizedString(_ key: String) -> String {
-    return NSLocalizedString(key, comment: "")
-}
 
+// Game "Manager": Responsible for the execution of the Game.
 class PokerGame {
     
     // MARK: Game Properties
@@ -147,11 +145,12 @@ class PokerGame {
         }
     }
     
+    // Set the back of the cards as image
     func setBackCards() {
         let image = UIImage(named: "cards_back")
         for slot in cardSlots {
             slot.uiImageView.image = image
-            if slot.isSelected {
+            if slot.isSelected! {
                 delegate.didResetCard(slot: slot, isSelected: false)
             }
         }

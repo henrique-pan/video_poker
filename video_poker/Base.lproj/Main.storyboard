@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -25,13 +25,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="cE9-21-Yy2">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="20" width="667" height="375"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Uy-66-gy8" userLabel="card1Background">
-                                <rect key="frame" x="18.5" y="132.5" width="119.5" height="172.5"/>
+                                <rect key="frame" x="17.5" y="132.5" width="120" height="172.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afS-UF-F2c" userLabel="card1Hold">
-                                        <rect key="frame" x="0.5" y="151.5" width="119.5" height="18"/>
+                                        <rect key="frame" x="0.5" y="151.5" width="120" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -39,10 +39,10 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="imw-RQ-VBz" userLabel="card1">
-                                        <rect key="frame" x="6" y="4" width="108" height="138"/>
+                                        <rect key="frame" x="6" y="4" width="108.5" height="138.5"/>
                                     </imageView>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2K-RH-sz8" userLabel="buttonCard1">
-                                        <rect key="frame" x="6" y="4" width="108" height="138"/>
+                                        <rect key="frame" x="6" y="4" width="108.5" height="138.5"/>
                                         <connections>
                                             <action selector="selectCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qg7-zH-xHK"/>
                                         </connections>
@@ -64,10 +64,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="93a-Nd-jzL" userLabel="card2Background">
-                                <rect key="frame" x="146" y="132.5" width="119.5" height="172.5"/>
+                                <rect key="frame" x="145.5" y="132.5" width="120" height="172.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huN-S8-aBC" userLabel="card2Hold">
-                                        <rect key="frame" x="0.5" y="151.5" width="119.5" height="18"/>
+                                        <rect key="frame" x="0.5" y="151.5" width="120" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="wRa-Y5-Bef" userLabel="card2">
-                                        <rect key="frame" x="6" y="4" width="108.5" height="138"/>
+                                        <rect key="frame" x="6.5" y="4" width="108" height="138.5"/>
                                     </imageView>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePU-6e-osS" userLabel="buttonCard2">
                                         <rect key="frame" x="6" y="16" width="101" height="131"/>
@@ -106,7 +106,7 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="691-Px-Hch" userLabel="card3">
-                                        <rect key="frame" x="6" y="4" width="108.5" height="138"/>
+                                        <rect key="frame" x="6" y="4" width="108.5" height="138.5"/>
                                     </imageView>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1j1-ck-c0W" userLabel="buttonCard3">
                                         <rect key="frame" x="6" y="16" width="100" height="131"/>
@@ -126,10 +126,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEd-JN-7FL" userLabel="card4Background">
-                                <rect key="frame" x="401.5" y="132.5" width="119.5" height="172.5"/>
+                                <rect key="frame" x="401.5" y="132.5" width="120" height="172.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94H-e4-5Lu" userLabel="card4Hold">
-                                        <rect key="frame" x="0.0" y="151.5" width="119.5" height="18"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="120" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -137,7 +137,7 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-dr-ShM" userLabel="card4">
-                                        <rect key="frame" x="5" y="4" width="108.5" height="138"/>
+                                        <rect key="frame" x="5.5" y="4" width="108" height="138.5"/>
                                     </imageView>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raU-Nm-CDA" userLabel="buttonCard4">
                                         <rect key="frame" x="6" y="16" width="101" height="131"/>
@@ -157,10 +157,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yn-xb-TiU" userLabel="card5Background">
-                                <rect key="frame" x="529" y="132.5" width="119.5" height="172.5"/>
+                                <rect key="frame" x="529.5" y="132.5" width="120" height="172.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7r-Lf-bu2" userLabel="card5Hold">
-                                        <rect key="frame" x="0.0" y="151.5" width="119.5" height="18"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="120" height="18"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -168,7 +168,7 @@
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cards_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="ROr-is-LDt" userLabel="card5">
-                                        <rect key="frame" x="5.5" y="4" width="108" height="138"/>
+                                        <rect key="frame" x="5.5" y="4" width="108.5" height="138.5"/>
                                     </imageView>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6v-4S-wHI" userLabel="buttonCard5">
                                         <rect key="frame" x="6" y="16" width="100" height="131"/>
@@ -188,7 +188,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-B6-hUG">
-                                <rect key="frame" x="26" y="20" width="78" height="30"/>
+                                <rect key="frame" x="26" y="40" width="79" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.47959277606168327" green="0.24619212362574483" blue="0.47630112197871949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -196,13 +196,13 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="tXd-dG-2vA">
-                                <rect key="frame" x="130" y="15" width="200" height="40"/>
+                                <rect key="frame" x="131" y="35" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Fk5-6G-eXV"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiZ-vz-Zht" userLabel="labelCredit">
-                                <rect key="frame" x="130" y="15" width="200" height="40"/>
+                                <rect key="frame" x="131" y="35" width="200" height="40"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -210,13 +210,13 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Fs-7J-8ke">
-                                <rect key="frame" x="424" y="15" width="200" height="40"/>
+                                <rect key="frame" x="424" y="35" width="200" height="40"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="HGB-K1-TuC">
-                                <rect key="frame" x="424" y="72" width="200" height="40"/>
+                                <rect key="frame" x="424" y="92" width="200" height="40"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hand:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BI5-hb-LDF">
-                                <rect key="frame" x="352" y="77" width="91" height="30"/>
+                                <rect key="frame" x="352" y="97" width="91" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.47959277610000001" green="0.24619212360000001" blue="0.47630112200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -224,7 +224,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKG-qz-pPU" userLabel="labelBet">
-                                <rect key="frame" x="424" y="15" width="200" height="40"/>
+                                <rect key="frame" x="424" y="35" width="200" height="40"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -232,7 +232,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXU-eV-szD" userLabel="labelHand">
-                                <rect key="frame" x="524.5" y="92" width="0.0" height="0.0"/>
+                                <rect key="frame" x="524.5" y="112" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -263,7 +263,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4B-gG-iPo">
-                                <rect key="frame" x="360" y="15" width="65" height="30"/>
+                                <rect key="frame" x="361" y="35" width="64" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" red="0.47959277610000001" green="0.24619212360000001" blue="0.47630112200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

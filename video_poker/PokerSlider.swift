@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
+// Personalized slider
 @IBDesignable
 class PokerSlider: UISlider {
     
+    // Set the trackHeight
     @IBInspectable var trackHeight: CGFloat = 10
     
     override func trackRect(forBounds bounds: CGRect) -> CGRect {

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Entity that represents each slot
 class Slot {
     
     var uiImageView: UIImageView!
@@ -21,7 +22,7 @@ class Slot {
     
     var isSelected: Bool!
     
-    
+    // Constructor to a new Slot
     init(uiImageView: UIImageView!, backgroundView: UIView!, labelHold: UILabel!) {
         self.uiImageView = uiImageView
         self.backgroundView = backgroundView
