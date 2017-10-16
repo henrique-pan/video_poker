@@ -149,6 +149,17 @@ class ViewController: UIViewController {
         return alertController
     }
     
+    // Alert controller to warn that the credits is over
+    func noMoreCreditsAlertController() -> UIAlertController {
+        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""),
+                                                message: NSLocalizedString("You don't have credits. Select deal to buy more!", comment: ""), preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        return alertController
+    }
+    
     // Alert controller "asking for money"
     func moreCreditAlertController() -> UIAlertController {
         let alertController = UIAlertController(title: NSLocalizedString("You need credit", comment: ""),
@@ -299,6 +310,12 @@ extension ViewController: PokerGameDelegate {
             betSlider.maximumValue = 0.0
             betSlider.maximumValue = Float(pokerGame.totalCredit)
             betSlider.isEnabled = true
+            
+            if pokerGame.totalCredit == 0 {
+                //Show alert controller informing that the credits is over
+                let alertController = noMoreCreditsAlertController()
+                present(alertController, animated: true, completion: nil)
+            }
         }
         
         pokerGame.round += 1
