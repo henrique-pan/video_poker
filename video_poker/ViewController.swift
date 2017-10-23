@@ -82,6 +82,11 @@ class ViewController: UIViewController {
         // Set the current bet and credit value
         labelBet.text = String(pokerGame.totalBet)
         labelCredit.text = String(pokerGame.totalCredit)
+        
+        if(pokerGame.totalCredit == 0) {
+            betSlider.isEnabled = false
+            labelButton.text = NSLocalizedString("Reset", comment: "")
+        }
     }
     
     //MARK: Actions
