@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     // Controller
     @IBOutlet weak var betSlider: UISlider!
     @IBOutlet weak var buttonDeal: UIButton!
+    @IBOutlet weak var labelButton: UILabel!
     // Controller
     
     // Instance of the Game "Manager"    
@@ -188,6 +189,9 @@ class ViewController: UIViewController {
             self.pokerGame.round = 0
             self.pokerGame.totalBet = 0
             
+            self.betSlider.isEnabled = true
+            self.labelButton.text = NSLocalizedString("Deal", comment: "")
+            
             self.betSlider.maximumValue = 0.0
             self.betSlider.maximumValue = Float(self.pokerGame.totalCredit)
             
@@ -292,7 +296,7 @@ extension ViewController: PokerGameDelegate {
     }
     
     @objc func displayRandomCards() {
-        // Stop the animation and set the random cards to the slot
+        // Stops the animation and set the random cards to the slot
         for slot in pokerGame.cardSlots {
             if !slot.isSelected {
                 let randomIndex = Int(arc4random_uniform(UInt32(pokerGame.totalCardsOnDeck)))
@@ -330,6 +334,8 @@ extension ViewController: PokerGameDelegate {
                 //Show alert controller informing that the credits is over
                 let alertController = noMoreCreditsAlertController()
                 present(alertController, animated: true, completion: nil)
+                betSlider.isEnabled = false
+                labelButton.text = NSLocalizedString("Reset", comment: "")
             }
         }
         
@@ -340,6 +346,7 @@ extension ViewController: PokerGameDelegate {
         buttonDeal.isEnabled = true
     }
     
+    // When a card is selected
     func didSelectCard(slot: Slot!) {
         if pokerGame.hasStarted! {
             if slot.isSelected! {
@@ -352,6 +359,7 @@ extension ViewController: PokerGameDelegate {
         }
     }
     
+    // When a card needs to be "restarted"
     func didResetCard(slot: Slot!, isSelected: Bool!) {
         if isSelected! {
             slot.backgroundView.backgroundColor = UIColor(red: 247/255, green: 204/255, blue: 75/255, alpha: 1)
